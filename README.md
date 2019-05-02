@@ -25,6 +25,8 @@ Our DSE engine uses a combination of static instrumentation combined with a nati
 
 Our framework includes a graphical tool to assist with the instrumentation of the original program, the execution of the instrumented program, and the viewing of generated constraints and solutions.
 
+Details about the architecture and design can be found in this [paper](papers/vustac_dse_paper.pdf).
+
 ### Limitations
 
 One intentional design decision that we made early-on is to allow the user to choose how much of their program is symbolically executed: bytecode that the user chooses to instrument will be symbolically executed, while uninstrumented code will *not* be symbolically executed. We made this choice in the interest of scalability: the instrumentation and native run-time JVMTI agent impose a significant timing overhead. 
