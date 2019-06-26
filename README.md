@@ -19,6 +19,14 @@ Some of the features include:
 
 Our DSE engine currently must be installed by building from source. Please see the instructions in the [repository](https://github.com/vustac/dse).
 
+### Demo videos
+
+The following videos demonstrate the use of our DSE engine:
+
+* The startup process is shown [here](videos/DSE-startup-process.mp4)
+* The steps for running the included Juliet CWE129 and CWE606 examples are shown [here](videos/DSE-CWE-examples.mp4)
+* The process for exploring new paths through an application is shown in [part 1](videos/DSE-PathBrowser-part_1.mp4) and [part 2](videos/DSE-PathBrowser-part_2.mp4)
+
 ### DSE architecture
 
 Our DSE engine uses a combination of static instrumentation combined with a native run-time JVMTI agent to drive the execution of a symbolic *shadow* JVM. As execution proceeds, constraints are logged to a database and solved by an external process. Solutions to the constraints correspond to new inputs that drive execution through a different program path.
