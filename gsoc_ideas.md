@@ -2,11 +2,13 @@
 
 ## Library summary generation
 
-Develop library summaries that allow precise symbolic reasoning over library code without requiring full symbolic execution. Technologies such as machine learning and software repository mining are in-scope for this area.
+Our DSE framework is novel in that it allows the user to select what is executed symbolically: only the code that the user chooses to statically instrument is executed symbolically. This is an intentional design decision made to keep the analysis scalable. However, it leads to imprecision when non-instrumented code is executed: if non-instrumented code affects the values of symbolic variables, then those affects are not known to the symbolic execution engine, and the analysis is less precise.
+
+One way to maintain scalability while at the same time improving precision is to *summarize* the effects that the un-instrumented code has on any symbolic variables. Such library summaries would allow precise symbolic reasoning over library code without requiring full symbolic execution. This task would use technologies such as machine learning and large-scale software repository mining to try to automatically summarize libraries; additional technologies, such as pre- and post-conditions or assume-guarantee reasoning, might also be applicable.
 
 ## Automatically generate inputs that maximize loop bounds
 
-The goal is to find "dangerous" inputs that, by maximizing loop bounds, cause the program to consume more system resources than intended.
+Program inputs that affect the values of loop bounds can be used to affect how many times a program executes a loop. The goal of this task is to extend our DSE engine to automatically identify "dangerous" input values that, by maximizing loop bounds, cause the program to consume more system resources than intended. By causing the program to consume a large amount of resources, such inputs could lead to a denial-of-service attack. One way to do this is to use the optimization features of SMT solvers, such as Z3, to identify the inputs. One challenging part of this task is modeling the interaction of constraints between loops so that globally optimal solutions are identified.
 
 ## Improve overall scalability
 
